@@ -1,6 +1,9 @@
-const CACHE_NAME = 'fielding-app-v1';
+// CAMBIAMOS a v2 PARA FORZAR LA ACTUALIZACIÓN EN LOS CELULARES
+const CACHE_NAME = 'fielding-app-v2'; 
 const ASSETS_TO_CACHE = [
-  './INDEX.html',
+  './',
+  './index.html',
+  './icono.png',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
@@ -13,7 +16,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activar y limpiar cachés antiguos si haces actualizaciones
+// Activar y limpiar cachés antiguos (Borrará el v1 que tenía error)
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
@@ -27,11 +30,9 @@ self.addEventListener('activate', event => {
 
 // Interceptar peticiones para cargar rápido
 self.addEventListener('fetch', event => {
-  // Ignorar las peticiones a Google Sheets para que los datos siempre sean en vivo
   if (event.request.url.includes('docs.google.com/spreadsheets')) {
     return; 
   }
-
   event.respondWith(
     caches.match(event.request)
       .then(response => response || fetch(event.request))
