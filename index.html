@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fielding School App by Teacher Ivan</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2D4F33">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -77,9 +81,6 @@
         footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
     </style>
 </head>
-<title>Fielding School App by Teacher Ivan</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2D4F33">
 <body>
 
     <header>
@@ -293,7 +294,7 @@
             autoAjustarMesCalendario(); 
             renderContenidos();
             renderCalendario();
-            renderNotificaciones(); // Reemplaza a renderNotas()
+            renderNotificaciones(); 
         }
 
         function renderContenidos() {
@@ -326,7 +327,6 @@
             `).join('');
         }
 
-        /* --- MOTOR DE NOTIFICACIONES (NUEVO) --- */
         function renderNotificaciones() {
             const div = document.getElementById('tab-notificaciones');
             const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
@@ -336,7 +336,6 @@
                 const dest = limpiar(buscar(n, 'DESTINO') || buscar(n, 'CURSO_DESTINO') || buscar(n, 'CURSO'));
                 const mat = limpiar(buscar(n, 'MATERIA'));
                 
-                // Filtros para mostrar notificaciones del curso, o notificaciones generales (sin destino)
                 const matchCurso = dest === '' || dest.includes(curAlumno) || curAlumno.includes(dest);
                 const matchMateria = mat === '' || mat.includes(matAlumno) || matAlumno.includes(mat) || (matAlumno.includes('histo') && mat.includes('histo'));
                 
@@ -361,7 +360,6 @@
                 let icon = 'fa-bell';
                 let color = 'var(--color-primary-green)';
                 
-                // Asignación de iconos y colores según gravedad
                 if(tipo.toLowerCase().includes('entrevista')) { icon = 'fa-handshake'; color = '#E9A934'; }
                 if(tipo.toLowerCase().includes('kardex')) { icon = 'fa-triangle-exclamation'; color = '#d32f2f'; }
 
@@ -381,7 +379,6 @@
             }).join('');
         }
 
-        // FUNCIÓN PARA ACTIVAR EL CALENDARIO DEL SMARTPHONE (.ics)
         window.agendarEnCelular = function(titulo, detalle, fecha) {
             let dateStr = "";
             const p = parsearFecha(fecha);
@@ -394,7 +391,6 @@
                 return;
             }
 
-            // Formato estándar iCalendar (Universal para iOS y Android)
             const icsContent = "BEGIN:VCALENDAR\n" +
             "VERSION:2.0\n" +
             "PRODID:-//TeacherIvan//FieldingApp//ES\n" +
@@ -416,7 +412,6 @@
             window.URL.revokeObjectURL(url);
         }
 
-        /* --- CALENDARIO UNIFICADO --- */
         function autoAjustarMesCalendario() {
             const todos = obtenerTodosEventos();
             if (todos.length > 0) {
@@ -537,7 +532,6 @@
             }
         }
 
-        /* --- UTILIDADES --- */
         function buscar(obj, keyPart) {
             if(!obj) return "";
             const key = Object.keys(obj).find(k => k.includes(keyPart.toUpperCase()));
@@ -569,7 +563,6 @@
         }
         
         window.verTab = function(id) {
-            // MODIFICACIÓN: Cambiado 'notas' por 'notificaciones'
             ['contenidos', 'calendario', 'notificaciones'].forEach(t => document.getElementById('tab-'+t).style.display = 'none');
             document.getElementById('tab-'+id).style.display = 'block';
             document.querySelectorAll('.tab-btn').forEach(b => {
@@ -578,7 +571,8 @@
             });
         }
         window.cambiarMes = (d) => { APP.fechaCal.setMonth(APP.fechaCal.getMonth() + d); renderCalendario(); }
-// REGISTRO DEL SERVICE WORKER (Para la PWA)
+
+        // REGISTRO DEL SERVICE WORKER (Para la PWA)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
