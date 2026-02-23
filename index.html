@@ -105,6 +105,10 @@
                         <i class="fa-brands fa-whatsapp"></i> ¿Problemas? Contactar
                     </a>
 
+                    <button id="btn-instalar" style="display: none; background-color: #2D4F33; color: white; border: none; padding: 12px 20px; border-radius: 50px; margin-top: 15px; width: 100%; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                        <i class="fa-solid fa-download"></i> Instalar App en el Celular
+                    </button>
+
                     <p id="msg-status" style="font-size: 0.8rem; color: #999; margin-top: 1rem;">Conectando con la base de datos...</p>
                 </div>
             </div>
@@ -582,7 +586,33 @@
                     .catch(err => console.error('Error al registrar el Service Worker', err));
             });
         }
+
+        // --- LÓGICA DEL BOTÓN DE INSTALACIÓN (PWA) ---
+        let eventoInstalacion;
+        const btnInstalar = document.getElementById('btn-instalar');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Previene que aparezca el mini-banner predeterminado de Chrome
+            e.preventDefault();
+            // Guarda el evento para usarlo luego
+            eventoInstalacion = e;
+            // Muestra nuestro botón personalizado
+            btnInstalar.style.display = 'block';
+        });
+
+        btnInstalar.addEventListener('click', async () => {
+            if (eventoInstalacion) {
+                // Muestra el aviso nativo de instalación
+                eventoInstalacion.prompt();
+                // Espera a que el usuario responda
+                const { outcome } = await eventoInstalacion.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('El usuario aceptó instalar la app');
+                    btnInstalar.style.display = 'none'; // Oculta el botón tras instalar
+                }
+                eventoInstalacion = null;
+            }
+        });
     </script>
 </body>
 </html>
-
