@@ -1,0 +1,18 @@
+{
+  "name": "Fielding School App",
+  "short_name": "Fielding",
+  "description": "Portal Educativo del Colegio Fielding",
+  "start_url": "./INDEX.html",
+  "display": "standalone",
+  "background_color": "#F8F7F3",
+  "theme_color": "#2D4F33",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3429/3429149.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
