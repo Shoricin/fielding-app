@@ -2,7 +2,7 @@
   "name": "Fielding School App",
   "short_name": "Fielding",
   "description": "Portal Educativo del Colegio Fielding",
-  "start_url": "./INDEX.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#F8F7F3",
   "theme_color": "#2D4F33",
