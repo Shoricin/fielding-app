@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fielding School App by Teacher Ivan</title>
-    
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2D4F33">
-    <link rel="apple-touch-icon" href="icono.png">
-    
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -105,10 +99,6 @@
                         <i class="fa-brands fa-whatsapp"></i> ¿Problemas? Contactar
                     </a>
 
-                    <button id="btn-instalar" style="display: none; background-color: #2D4F33; color: white; border: none; padding: 12px 20px; border-radius: 50px; margin-top: 15px; width: 100%; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
-                        <i class="fa-solid fa-download"></i> Instalar App en el Celular
-                    </button>
-
                     <p id="msg-status" style="font-size: 0.8rem; color: #999; margin-top: 1rem;">Conectando con la base de datos...</p>
                 </div>
             </div>
@@ -122,6 +112,10 @@
                     <h2 id="profile-name" style="margin: 0; color: var(--color-primary-green); font-size: 1.3rem;">Nombre Estudiante</h2>
                     <p id="profile-course" style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem; font-weight: bold;">Curso</p>
                 </div>
+
+                <a href="PROYECTOSMENSUALES.html" style="display: block; background: var(--color-primary-green); color: white; text-align: center; padding: 15px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <i class="fa-solid fa-list-check" style="color: var(--color-accent-yellow); margin-right: 8px;"></i> VER PROYECTOS MENSUALES
+                </a>
 
                 <h3 style="color: var(--color-primary-green); text-align: center; margin-bottom: 10px;">Mis Materias Activas</h3>
                 <div id="grid-materias" class="subjects-grid"></div>
@@ -182,7 +176,6 @@
     <script>
         const SHEET_ID = '1Xg9v3_2thiMC31HTFt4docqPzUrL4U5xozX0if7Bswk';
         
-        // MODIFICACIÓN: AÑADIDA LA PESTAÑA DATA_NOTIFICACIONES
         const TABS = {
             notas: 'REGISTRO_NOTAS', // Se mantiene para el login y materias
             calendario: 'DATA_CALENDARIO',
@@ -300,7 +293,7 @@
             autoAjustarMesCalendario(); 
             renderContenidos();
             renderCalendario();
-            renderNotificaciones(); 
+            renderNotificaciones(); // Reemplaza a renderNotas()
         }
 
         function renderContenidos() {
@@ -333,6 +326,7 @@
             `).join('');
         }
 
+        /* --- MOTOR DE NOTIFICACIONES (NUEVO) --- */
         function renderNotificaciones() {
             const div = document.getElementById('tab-notificaciones');
             const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
@@ -385,6 +379,7 @@
             }).join('');
         }
 
+        // FUNCIÓN PARA ACTIVAR EL CALENDARIO DEL SMARTPHONE (.ics)
         window.agendarEnCelular = function(titulo, detalle, fecha) {
             let dateStr = "";
             const p = parsearFecha(fecha);
@@ -418,6 +413,7 @@
             window.URL.revokeObjectURL(url);
         }
 
+        /* --- CALENDARIO UNIFICADO --- */
         function autoAjustarMesCalendario() {
             const todos = obtenerTodosEventos();
             if (todos.length > 0) {
@@ -538,6 +534,7 @@
             }
         }
 
+        /* --- UTILIDADES --- */
         function buscar(obj, keyPart) {
             if(!obj) return "";
             const key = Object.keys(obj).find(k => k.includes(keyPart.toUpperCase()));
@@ -577,42 +574,6 @@
             });
         }
         window.cambiarMes = (d) => { APP.fechaCal.setMonth(APP.fechaCal.getMonth() + d); renderCalendario(); }
-
-        // REGISTRO DEL SERVICE WORKER (Para la PWA)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(reg => console.log('Service Worker registrado con éxito', reg))
-                    .catch(err => console.error('Error al registrar el Service Worker', err));
-            });
-        }
-
-        // --- LÓGICA DEL BOTÓN DE INSTALACIÓN (PWA) ---
-        let eventoInstalacion;
-        const btnInstalar = document.getElementById('btn-instalar');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Previene que aparezca el mini-banner predeterminado de Chrome
-            e.preventDefault();
-            // Guarda el evento para usarlo luego
-            eventoInstalacion = e;
-            // Muestra nuestro botón personalizado
-            btnInstalar.style.display = 'block';
-        });
-
-        btnInstalar.addEventListener('click', async () => {
-            if (eventoInstalacion) {
-                // Muestra el aviso nativo de instalación
-                eventoInstalacion.prompt();
-                // Espera a que el usuario responda
-                const { outcome } = await eventoInstalacion.userChoice;
-                if (outcome === 'accepted') {
-                    console.log('El usuario aceptó instalar la app');
-                    btnInstalar.style.display = 'none'; // Oculta el botón tras instalar
-                }
-                eventoInstalacion = null;
-            }
-        });
     </script>
 </body>
 </html>
