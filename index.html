@@ -44,12 +44,13 @@
         .fab-whatsapp:hover { transform: scale(1.1); }
 
         .subjects-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-        .subject-card { background: var(--color-white); padding: 2rem; border-radius: var(--border-radius-card); text-align: center; border: 2px solid transparent; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .subject-card { background: var(--color-white); padding: 2rem; border-radius: var(--border-radius-card); text-align: center; border: 2px solid transparent; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .subject-card:active { transform: scale(0.98); }
         .card-icon { font-size: 2.5rem; color: var(--color-accent-yellow); margin-bottom: 1rem; background: #fff3d4; width: 70px; height: 70px; line-height: 70px; border-radius: 50%; margin: 0 auto 1.5rem auto; }
 
         .btn-back { background: transparent; border: none; color: #666; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 5px; margin-bottom: 15px; font-family: 'Poppins'; }
         .tabs-menu { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px; }
-        .tab-btn { flex: 1; padding: 10px 20px; border: none; border-radius: 30px; background: #eee; color: #555; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .tab-btn { flex: 1; padding: 10px 20px; border: none; border-radius: 30px; background: #eee; color: #555; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s; }
         .tab-btn.active { background: var(--color-accent-yellow); color: white; }
 
         .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
@@ -107,18 +108,22 @@
         <section id="view-dashboard" style="display:none; padding: 2rem 0;">
             <div class="container">
                 
-                <div id="student-profile" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 2rem; border-top: 5px solid var(--color-primary-green);">
+                <div id="student-profile" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 1.5rem; border-top: 5px solid var(--color-primary-green);">
                     <i class="fa-solid fa-user-graduate" style="font-size: 3rem; color: var(--color-accent-yellow); margin-bottom: 10px;"></i>
                     <h2 id="profile-name" style="margin: 0; color: var(--color-primary-green); font-size: 1.3rem;">Nombre Estudiante</h2>
                     <p id="profile-course" style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem; font-weight: bold;">Curso</p>
                 </div>
 
-                <a href="PROYECTOSMENSUALES.html" style="display: block; background: var(--color-primary-green); color: white; text-align: center; padding: 15px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                    <i class="fa-solid fa-list-check" style="color: var(--color-accent-yellow); margin-right: 8px;"></i> VER PROYECTOS MENSUALES
-                </a>
+                <div class="subject-card" onclick="window.location.href='PROYECTOSMENSUALES.html'" style="background: var(--color-primary-green); border: none; padding: 1.5rem; margin-bottom: 2rem;">
+                    <div class="card-icon" style="background: rgba(255,255,255,0.1); width: 60px; height: 60px; line-height: 60px; margin-bottom: 10px;">
+                        <i class="fa-solid fa-list-check" style="color: var(--color-accent-yellow);"></i>
+                    </div>
+                    <h3 style="color: var(--color-white); margin: 0 0 5px 0; font-size: 1.2rem;">Proyectos Mensuales</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.85rem;">Instrucciones y Grupos de Trabajo</p>
+                </div>
 
                 <h3 style="color: var(--color-primary-green); text-align: center; margin-bottom: 10px;">Mis Materias Activas</h3>
-                <div id="grid-materias" class="subjects-grid"></div>
+                <div id="grid-materias" class="subjects-grid" style="margin-top: 0;"></div>
             </div>
         </section>
 
@@ -135,6 +140,7 @@
                     <button class="tab-btn active" onclick="verTab('contenidos')">Contenidos</button>
                     <button class="tab-btn" onclick="verTab('calendario')">Calendario</button>
                     <button class="tab-btn" onclick="verTab('notificaciones')">Notificaciones</button>
+                    <button class="tab-btn" onclick="window.location.href='PROYECTOSMENSUALES.html'" style="background: var(--color-primary-green); color: white;">Proyectos</button>
                 </div>
 
                 <div id="tab-contenidos"></div>
@@ -177,7 +183,7 @@
         const SHEET_ID = '1Xg9v3_2thiMC31HTFt4docqPzUrL4U5xozX0if7Bswk';
         
         const TABS = {
-            notas: 'REGISTRO_NOTAS', // Se mantiene para el login y materias
+            notas: 'REGISTRO_NOTAS',
             calendario: 'DATA_CALENDARIO',
             contenido: 'CONTENIDOS_MENSUALES',
             notificaciones: 'DATA_NOTIFICACIONES' 
@@ -259,7 +265,6 @@
             const estudiante = buscar(DB.misMaterias[0], 'ESTUDIANTE') || "Estudiante";
             document.querySelector('header h1 span').innerText = "Portal de " + estudiante.split(' ')[0];
 
-            // Rellenar Perfil de Estudiante
             document.getElementById('profile-name').innerText = estudiante;
             const cursosUnicos = [...new Set(DB.misMaterias.map(m => buscar(m, 'CURSO')))].join(' | ');
             document.getElementById('profile-course').innerText = cursosUnicos;
@@ -293,7 +298,7 @@
             autoAjustarMesCalendario(); 
             renderContenidos();
             renderCalendario();
-            renderNotificaciones(); // Reemplaza a renderNotas()
+            renderNotificaciones();
         }
 
         function renderContenidos() {
@@ -326,7 +331,6 @@
             `).join('');
         }
 
-        /* --- MOTOR DE NOTIFICACIONES (NUEVO) --- */
         function renderNotificaciones() {
             const div = document.getElementById('tab-notificaciones');
             const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
@@ -379,7 +383,6 @@
             }).join('');
         }
 
-        // FUNCIÓN PARA ACTIVAR EL CALENDARIO DEL SMARTPHONE (.ics)
         window.agendarEnCelular = function(titulo, detalle, fecha) {
             let dateStr = "";
             const p = parsearFecha(fecha);
@@ -413,7 +416,6 @@
             window.URL.revokeObjectURL(url);
         }
 
-        /* --- CALENDARIO UNIFICADO --- */
         function autoAjustarMesCalendario() {
             const todos = obtenerTodosEventos();
             if (todos.length > 0) {
@@ -534,7 +536,6 @@
             }
         }
 
-        /* --- UTILIDADES --- */
         function buscar(obj, keyPart) {
             if(!obj) return "";
             const key = Object.keys(obj).find(k => k.includes(keyPart.toUpperCase()));
