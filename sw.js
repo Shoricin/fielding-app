@@ -1,8 +1,8 @@
-const CACHE_NAME = 'fielding-app-v4'; 
+const CACHE_NAME = 'fielding-app-v5'; 
 
 const ASSETS_TO_CACHE = [
   './',
-  './INDEX.html',
+  './index.html',
   './PROYECTOSMENSUALES.html',
   './manifest.json',
   './icono.png',
