@@ -576,5 +576,27 @@
         }
         window.cambiarMes = (d) => { APP.fechaCal.setMonth(APP.fechaCal.getMonth() + d); renderCalendario(); }
     </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js').then(reg => {
+                reg.onupdatefound = () => {
+                    const installingWorker = reg.installing;
+                    installingWorker.onstatechange = () => {
+                        if (installingWorker.state === 'installed') {
+                            if (navigator.serviceWorker.controller) {
+                                // Hay una actualización disponible
+                                console.log('Nueva versión encontrada. Recargando...');
+                                window.location.reload();
+                            }
+                        }
+                    };
+                };
+            });
+        });
+    }
+</script>
+    
 </body>
 </html>
+
