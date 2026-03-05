@@ -1,7 +1,7 @@
 {
-  "name": "Fielding School App",
+  "name": "Fielding School App v2",
   "short_name": "Fielding",
-  "description": "Portal Educativo del Colegio Fielding",
+  "description": "Portal Educativo del Colegio Fielding - Gestión 2026",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#F8F7F3",
@@ -16,3 +16,4 @@
     }
   ]
 }
+
