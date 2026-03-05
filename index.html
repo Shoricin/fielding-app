@@ -36,44 +36,29 @@
         .login-box { background: var(--color-white); padding: 2.5rem; border-radius: var(--border-radius-card); box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 400px; margin: 2rem auto; border-top: 5px solid var(--color-accent-yellow); }
         .login-input { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #eee; border-radius: var(--border-radius-btn); font-family: 'Poppins'; font-size: 1rem; text-align: center; box-sizing: border-box; text-transform: uppercase; }
         .btn-primary { background-color: var(--color-accent-yellow); color: var(--color-primary-green); border: none; padding: 15px 40px; font-size: 1rem; font-weight: 700; border-radius: var(--border-radius-btn); cursor: pointer; width: 100%; transition: transform 0.2s; display: block; }
-        .btn-primary:active { transform: scale(0.98); }
-
-        .btn-whatsapp-login { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 50px; margin-top: 15px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); transition: 0.2s; }
-        .btn-whatsapp-login:hover { background-color: #1ebe57; }
-        .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; transition: 0.3s; }
-        .fab-whatsapp:hover { transform: scale(1.1); }
+        
+        .btn-whatsapp-login { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 50px; margin-top: 15px; font-size: 0.9rem; }
+        .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
 
         .subjects-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-        .subject-card { background: var(--color-white); padding: 2rem; border-radius: var(--border-radius-card); text-align: center; border: 2px solid transparent; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .subject-card { background: var(--color-white); padding: 2rem; border-radius: var(--border-radius-card); text-align: center; border: 2px solid transparent; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.2s; }
         .subject-card:active { transform: scale(0.98); }
         .card-icon { font-size: 2.5rem; color: var(--color-accent-yellow); margin-bottom: 1rem; background: #fff3d4; width: 70px; height: 70px; line-height: 70px; border-radius: 50%; margin: 0 auto 1.5rem auto; }
 
-        .btn-back { background: transparent; border: none; color: #666; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 5px; margin-bottom: 15px; font-family: 'Poppins'; }
+        .btn-back { background: transparent; border: none; color: #666; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 5px; margin-bottom: 15px; }
         .tabs-menu { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px; }
-        .tab-btn { flex: 1; padding: 10px 20px; border: none; border-radius: 30px; background: #eee; color: #555; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+        .tab-btn { flex: 1; padding: 10px 20px; border: none; border-radius: 30px; background: #eee; color: #555; font-weight: 600; cursor: pointer; white-space: nowrap; }
         .tab-btn.active { background: var(--color-accent-yellow); color: white; }
 
-        .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
         .cal-day { background: white; border-radius: 10px; height: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.9rem; border: 1px solid #f0f0f0; position: relative; }
         .cal-day.today { border: 2px solid var(--color-accent-yellow); font-weight: bold; }
-        .cal-day.has-event { background-color: #fcfcfc; cursor: pointer; border-color: #ddd; }
-        
         .dots { display: flex; gap: 3px; margin-top: 4px; justify-content: center; flex-wrap: wrap; }
         .dot { width: 6px; height: 6px; border-radius: 50%; }
         
-        .dot.ingles { background: var(--col-ingles); }
-        .dot.filosofia { background: var(--col-filosofia); }
-        .dot.hist-bol { background: var(--col-hist-bol); }
-        .dot.hist-uni { background: var(--col-hist-uni); }
-        .dot.feriado { background: var(--col-feriado); }
-        .dot.general { background: var(--col-general); }
-
         .content-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; border-left: 5px solid var(--color-accent-yellow); box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
         
-        .btn-reminder { margin-top: 8px; background: #f0f0f0; border: none; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; color: #555; display: inline-flex; align-items: center; gap: 6px; transition: 0.2s; }
-        .btn-reminder:hover { background: #e0e0e0; }
-        .btn-reminder.active { background: var(--color-accent-yellow); color: white; }
+        .btn-reminder { margin-top: 8px; background: #f0f0f0; border: none; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; color: var(--color-primary-green); display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
 
         footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
     </style>
@@ -93,37 +78,30 @@
                 <div class="login-box">
                     <i class="fa-solid fa-lock" style="font-size: 2rem; color: var(--color-accent-yellow); margin-bottom: 1rem;"></i>
                     <input type="text" id="input-code" class="login-input" placeholder="INGRESE CÓDIGO">
-                    
                     <button class="btn-primary" onclick="intentarLogin()">ACCEDER</button>
-                    
                     <a href="https://wa.me/59172878330" target="_blank" class="btn-whatsapp-login">
                         <i class="fa-brands fa-whatsapp"></i> ¿Problemas? Contactar
                     </a>
-
-                    <p id="msg-status" style="font-size: 0.8rem; color: #999; margin-top: 1rem;">Conectando con la base de datos...</p>
+                    <p id="msg-status" style="font-size: 0.8rem; color: #999; margin-top: 1rem;">Conectando...</p>
                 </div>
             </div>
         </section>
 
         <section id="view-dashboard" style="display:none; padding: 2rem 0;">
             <div class="container">
-                
-                <div id="student-profile" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 1.5rem; border-top: 5px solid var(--color-primary-green);">
-                    <i class="fa-solid fa-user-graduate" style="font-size: 3rem; color: var(--color-accent-yellow); margin-bottom: 10px;"></i>
-                    <h2 id="profile-name" style="margin: 0; color: var(--color-primary-green); font-size: 1.3rem;">Nombre Estudiante</h2>
-                    <p id="profile-course" style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem; font-weight: bold;">Curso</p>
+                <div id="student-profile" style="background: white; padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 1.5rem; border-top: 5px solid var(--color-primary-green);">
+                    <i class="fa-solid fa-user-graduate" style="font-size: 2.5rem; color: var(--color-accent-yellow); margin-bottom: 10px;"></i>
+                    <h2 id="profile-name" style="margin: 0; color: var(--color-primary-green); font-size: 1.3rem;">-</h2>
+                    <p id="profile-course" style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem; font-weight: bold;">-</p>
                 </div>
 
                 <div class="subject-card" onclick="window.location.href='PROYECTOSMENSUALES.html'" style="background: var(--color-primary-green); border: none; padding: 1.5rem; margin-bottom: 2rem;">
-                    <div class="card-icon" style="background: rgba(255,255,255,0.1); width: 60px; height: 60px; line-height: 60px; margin-bottom: 10px;">
-                        <i class="fa-solid fa-list-check" style="color: var(--color-accent-yellow);"></i>
-                    </div>
-                    <h3 style="color: var(--color-white); margin: 0 0 5px 0; font-size: 1.2rem;">Proyectos Mensuales</h3>
-                    <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.85rem;">Instrucciones y Grupos de Trabajo</p>
+                    <h3 style="color: white; margin: 0;"><i class="fa-solid fa-list-check" style="color: var(--color-accent-yellow);"></i> PROYECTOS MENSUALES</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin: 5px 0 0 0; font-size: 0.85rem;">Instrucciones y grupos</p>
                 </div>
 
                 <h3 style="color: var(--color-primary-green); text-align: center; margin-bottom: 10px;">Mis Materias Activas</h3>
-                <div id="grid-materias" class="subjects-grid" style="margin-top: 0;"></div>
+                <div id="grid-materias" class="subjects-grid"></div>
             </div>
         </section>
 
@@ -144,63 +122,40 @@
                 </div>
 
                 <div id="tab-contenidos"></div>
-                
                 <div id="tab-calendario" style="display:none">
                     <div class="cal-header">
                         <button class="btn-back" onclick="cambiarMes(-1)" style="margin:0"><i class="fa-solid fa-chevron-left"></i></button>
-                        <strong id="cal-mes-anio" style="text-transform: uppercase;">MES</strong>
+                        <strong id="cal-mes-anio">MES</strong>
                         <button class="btn-back" onclick="cambiarMes(1)" style="margin:0"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
-                    <div class="cal-grid">
-                        <small>D</small><small>L</small><small>M</small><small>M</small><small>J</small><small>V</small><small>S</small>
-                    </div>
+                    <div class="cal-grid"><small>D</small><small>L</small><small>M</small><small>M</small><small>J</small><small>V</small><small>S</small></div>
                     <div id="cal-dias" class="cal-grid"></div>
-                    
-                    <div style="margin-top:20px; font-size:0.75rem; color:#666; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
-                        <span style="display:flex; align-items:center; gap:5px"><span class="dot ingles"></span> Inglés</span>
-                        <span style="display:flex; align-items:center; gap:5px"><span class="dot hist-uni"></span> Hist. Universal</span>
-                        <span style="display:flex; align-items:center; gap:5px"><span class="dot hist-bol"></span> Hist. Bolivia</span>
-                        <span style="display:flex; align-items:center; gap:5px"><span class="dot filosofia"></span> Filosofía</span>
-                        <span style="display:flex; align-items:center; gap:5px"><span class="dot feriado"></span> Feriado</span>
-                    </div>
                     <div id="cal-detalle" style="margin-top:20px; display:none;"></div>
                 </div>
-
                 <div id="tab-notificaciones" style="display:none"></div>
             </div>
         </section>
     </main>
 
-    <a href="https://wa.me/59172878330" target="_blank" class="fab-whatsapp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <p>© 2026 Teacher Ivan - Colegio Fielding</p>
-    </footer>
+    <footer><p>© 2026 Teacher Ivan - Colegio Fielding</p></footer>
 
     <script>
         const SHEET_ID = '1Xg9v3_2thiMC31HTFt4docqPzUrL4U5xozX0if7Bswk';
-        
         const TABS = {
             notas: 'REGISTRO_NOTAS',
             calendario: 'DATA_CALENDARIO',
             contenido: 'CONTENIDOS_MENSUALES',
-            notificaciones: 'DATA_NOTIFICACIONES' 
+            notificaciones: 'DATA_NOTIFICACIONES'
         };
 
         const EVENTOS_FIJOS = [
-            { f: "2026-02-02", t: "Inicio de Clases", tipo: "General", materia: "", detalle: "" },
-            { f: "2026-02-16", t: "Carnaval", tipo: "Feriado", materia: "", detalle: "" },
-            { f: "2026-02-17", t: "Carnaval", tipo: "Feriado", materia: "", detalle: "" },
-            { f: "2026-03-19", t: "Día del Padre", tipo: "General", materia: "", detalle: "" },
-            { f: "2026-03-23", t: "Día del Mar", tipo: "General", materia: "", detalle: "" },
-            { f: "2026-04-03", t: "Viernes Santo", tipo: "Feriado", materia: "", detalle: "" },
-            { f: "2026-05-01", t: "Día del Trabajo", tipo: "Feriado", materia: "", detalle: "" }
+            { f: "2026-02-02", t: "Inicio de Clases", tipo: "General" },
+            { f: "2026-02-16", t: "Carnaval", tipo: "Feriado" },
+            { f: "2026-02-17", t: "Carnaval", tipo: "Feriado" }
         ];
 
         const DB = { notas: [], calendario: [], contenido: [], notificaciones: [], misMaterias: [] };
-        const APP = { materia: null, fechaCal: new Date() };
+        const APP = { materia: null, student: null, course: null, fechaCal: new Date() };
 
         window.onload = function() {
             cargarHoja(TABS.notas, 'cbNotas');
@@ -224,357 +179,124 @@
             if (!json || !json.table) return;
             let headers = json.table.cols.map(c => c.label ? c.label.trim().toUpperCase() : '');
             let rows = json.table.rows;
-
             if (headers.filter(h => h !== '').length === 0 && rows.length > 0) {
                 headers = rows[0].c.map(celda => (celda && celda.v) ? String(celda.v).trim().toUpperCase() : '');
                 rows = rows.slice(1);
             }
-
             DB[tipo] = rows.map(r => {
                 let obj = {};
                 r.c.forEach((celda, i) => {
                     const key = headers[i] || ('COL' + i);
-                    if(key !== '') obj[key] = (celda && celda.v !== null) ? String(celda.v) : "";
+                    obj[key] = (celda && celda.v !== null) ? String(celda.v) : "";
                 });
                 return obj;
             });
-            if(tipo === 'notas') document.getElementById('msg-status').innerText = "Sistema conectado. Ingrese su código.";
+            if(tipo === 'notas') document.getElementById('msg-status').innerText = "Listo.";
         }
 
         window.intentarLogin = function() {
-            const code = document.getElementById('input-code').value.trim().replace(/\s/g, '').toUpperCase();
-            if(!code) return alert("Ingrese un código.");
-
+            const code = document.getElementById('input-code').value.trim().toUpperCase();
             DB.misMaterias = DB.notas.filter(row => {
                 const k = Object.keys(row).find(key => key.includes('CODIGO'));
-                return row[k] && row[k].replace(/\s/g, '').toUpperCase() === code;
+                return row[k] && row[k].toUpperCase() === code;
             });
-
             if(DB.misMaterias.length > 0) {
+                APP.student = buscar(DB.misMaterias[0], 'ESTUDIANTE');
+                APP.course = buscar(DB.misMaterias[0], 'CURSO');
                 mostrarDashboard();
-            } else {
-                alert("Código no encontrado.");
-            }
+            } else { alert("Código no encontrado."); }
         }
 
         window.mostrarDashboard = function() {
             cambiarVista('view-dashboard');
+            document.getElementById('profile-name').innerText = APP.student;
+            document.getElementById('profile-course').innerText = APP.course;
             const grid = document.getElementById('grid-materias');
             grid.innerHTML = '';
-            
-            const estudiante = buscar(DB.misMaterias[0], 'ESTUDIANTE') || "Estudiante";
-            document.querySelector('header h1 span').innerText = "Portal de " + estudiante.split(' ')[0];
-
-            document.getElementById('profile-name').innerText = estudiante;
-            const cursosUnicos = [...new Set(DB.misMaterias.map(m => buscar(m, 'CURSO')))].join(' | ');
-            document.getElementById('profile-course').innerText = cursosUnicos;
-
             DB.misMaterias.forEach((m, i) => {
                 const mat = buscar(m, 'MATERIA');
-                const cur = buscar(m, 'CURSO');
-                let ico = 'fa-book';
-                if(limpiar(mat).includes('ingles')) ico = 'fa-comments';
-                if(limpiar(mat).includes('filoso')) ico = 'fa-brain';
-                if(limpiar(mat).includes('histo')) ico = 'fa-landmark';
-
-                grid.innerHTML += `
-                <div class="subject-card" onclick="abrirMateria(${i})">
-                    <div class="card-icon"><i class="fa-solid ${ico}"></i></div>
-                    <h3 style="color:var(--color-primary-green); margin-bottom:5px;">${mat}</h3>
-                    <p style="color:#666; margin:0;">${cur}</p>
-                </div>`;
+                grid.innerHTML += `<div class="subject-card" onclick="abrirMateria(${i})">
+                    <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+                    <h3>${mat}</h3><p>${APP.course}</p></div>`;
             });
         }
-
-        window.volverAlDashboard = () => cambiarVista('view-dashboard');
 
         window.abrirMateria = function(index) {
             APP.materia = DB.misMaterias[index];
             cambiarVista('view-detail');
             document.getElementById('materia-titulo').innerText = buscar(APP.materia, 'MATERIA');
-            document.getElementById('materia-subtitulo').innerText = buscar(APP.materia, 'CURSO');
-            
+            document.getElementById('materia-subtitulo').innerText = APP.course;
             verTab('contenidos');
-            autoAjustarMesCalendario(); 
-            renderContenidos();
-            renderCalendario();
-            renderNotificaciones();
+            renderContenidos(); renderCalendario(); renderNotificaciones();
         }
 
         function renderContenidos() {
             const div = document.getElementById('tab-contenidos');
-            const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
-            const matAlumno = limpiar(buscar(APP.materia, 'MATERIA'));
-
             const temas = DB.contenido.filter(t => {
                 const tCur = limpiar(buscar(t, 'CURSO') || buscar(t, 'NIVEL'));
                 const tMat = limpiar(buscar(t, 'MATERIA'));
-                const matchCurso = tCur.includes(curAlumno) || curAlumno.includes(tCur);
-                const matchMateria = tMat.includes(matAlumno) || matAlumno.includes(tMat) || (matAlumno.includes('histo') && tMat.includes('histo'));
-                return matchCurso && matchMateria;
+                return (tCur.includes(limpiar(APP.course)) || limpiar(APP.course).includes(tCur)) && 
+                       (tMat.includes(limpiar(buscar(APP.materia, 'MATERIA'))));
             });
-
-            if(temas.length === 0) {
-                div.innerHTML = `<p style="text-align:center; color:#999; padding:20px;">No hay contenidos visibles.</p>`;
-                return;
-            }
-
-            div.innerHTML = temas.map(t => `
-                <div class="content-card">
-                    <div style="font-size:0.75rem; color:#888; display:flex; justify-content:space-between; text-transform:uppercase;">
-                        <span>${buscar(t, 'MES')}</span>
-                        <span style="color:var(--color-primary-green); font-weight:bold;">${buscar(t, 'ESTADO')}</span>
-                    </div>
-                    <h4 style="margin:5px 0; color:#333;">${buscar(t, 'TITULO')}</h4>
-                    <p style="color:#666; font-size:0.9rem; margin:0;">${buscar(t, 'DESCRIPCION')}</p>
-                </div>
-            `).join('');
+            div.innerHTML = temas.length ? temas.map(t => `<div class="content-card"><h4>${buscar(t, 'TITULO')}</h4><p>${buscar(t, 'DESCRIPCION')}</p></div>`).join('') : '<p>No hay contenidos.</p>';
         }
 
         function renderNotificaciones() {
             const div = document.getElementById('tab-notificaciones');
-            const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
-            const matAlumno = limpiar(buscar(APP.materia, 'MATERIA'));
-
             const notifs = DB.notificaciones.filter(n => {
-                const dest = limpiar(buscar(n, 'DESTINO') || buscar(n, 'CURSO_DESTINO') || buscar(n, 'CURSO'));
-                const mat = limpiar(buscar(n, 'MATERIA'));
-                
-                const matchCurso = dest === '' || dest.includes(curAlumno) || curAlumno.includes(dest);
-                const matchMateria = mat === '' || mat.includes(matAlumno) || matAlumno.includes(mat) || (matAlumno.includes('histo') && mat.includes('histo'));
-                
-                return matchCurso && matchMateria;
+                const dest = limpiar(buscar(n, 'CURSO_DESTINO') || buscar(n, 'CURSO') || '');
+                return dest === '' || dest.includes(limpiar(APP.course)) || limpiar(APP.course).includes(dest);
             });
-
-            if(notifs.length === 0) {
-                div.innerHTML = `
-                <div style="text-align:center; padding:40px; background:white; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-                    <i class="fa-regular fa-bell-slash" style="font-size:3rem; color:#ccc; margin-bottom:10px;"></i>
-                    <p style="color:#999; margin:0;">No tienes notificaciones o alertas en esta materia.</p>
-                </div>`;
-                return;
-            }
-
-            div.innerHTML = notifs.map(n => {
-                const titulo = buscar(n, 'TITULO') || buscar(n, 'ASUNTO');
-                const fecha = buscar(n, 'FECHA');
-                const detalle = buscar(n, 'DETALLE') || buscar(n, 'MENSAJE');
-                const tipo = buscar(n, 'TIPO') || 'Aviso';
-                
-                let icon = 'fa-bell';
-                let color = 'var(--color-primary-green)';
-                
-                if(tipo.toLowerCase().includes('entrevista')) { icon = 'fa-handshake'; color = '#E9A934'; }
-                if(tipo.toLowerCase().includes('kardex')) { icon = 'fa-triangle-exclamation'; color = '#d32f2f'; }
-
-                return `
-                <div class="content-card" style="border-left-color: ${color}">
-                    <div style="font-size:0.75rem; color:#888; display:flex; justify-content:space-between; text-transform:uppercase; margin-bottom:5px;">
-                        <span style="color:${color}; font-weight:bold;"><i class="fa-solid ${icon}"></i> ${tipo}</span>
-                        <span>${fecha}</span>
-                    </div>
-                    <h4 style="margin:0 0 5px 0; color:#333;">${titulo}</h4>
-                    <p style="color:#666; font-size:0.9rem; margin:0 0 15px 0;">${detalle}</p>
-                    
-                    <button onclick="agendarEnCelular('${titulo}', '${detalle}', '${fecha}')" style="background:var(--color-bg-light); color:#555; border:1px solid #ddd; padding:8px 15px; border-radius:20px; font-size:0.8rem; cursor:pointer; font-weight:600; transition:0.2s; width:100%;">
-                        <i class="fa-regular fa-calendar-plus" style="color:var(--color-primary-green)"></i> Agregar Recordatorio al Celular
+            div.innerHTML = notifs.length ? notifs.map(n => `
+                <div class="content-card">
+                    <strong>${buscar(n, 'TIPO')}: ${buscar(n, 'TITULO')}</strong>
+                    <p>${buscar(n, 'DETALLE')}</p>
+                    <button class="btn-reminder" onclick="agendar('${buscar(n, 'TITULO')}', '${buscar(n, 'DETALLE')}', '${buscar(n, 'FECHA')}')">
+                        <i class="fa-solid fa-calendar-plus"></i> Recordar en Celular
                     </button>
-                </div>`;
-            }).join('');
+                </div>`).join('') : '<p>Sin notificaciones.</p>';
         }
 
-        window.agendarEnCelular = function(titulo, detalle, fecha) {
-            let dateStr = "";
-            const p = parsearFecha(fecha);
-            if(p) {
-                const mm = String(p.mes + 1).padStart(2, '0');
-                const dd = String(p.dia).padStart(2, '0');
-                dateStr = `${p.anio}${mm}${dd}`;
-            } else {
-                alert("La fecha no es válida para agregar al calendario.");
-                return;
-            }
-
-            const icsContent = "BEGIN:VCALENDAR\n" +
-            "VERSION:2.0\n" +
-            "PRODID:-//TeacherIvan//FieldingApp//ES\n" +
-            "BEGIN:VEVENT\n" +
-            "DTSTART;VALUE=DATE:" + dateStr + "\n" +
-            "SUMMARY:" + titulo + "\n" +
-            "DESCRIPTION:" + detalle + "\n" +
-            "END:VEVENT\n" +
-            "END:VCALENDAR";
-
-            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'recordatorio_colegio.ics';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        function autoAjustarMesCalendario() {
-            const todos = obtenerTodosEventos();
-            if (todos.length > 0) {
-                todos.sort((a,b) => {
-                    let fa = parsearFecha(a.fecha), fb = parsearFecha(b.fecha);
-                    if(!fa || !fb) return 0;
-                    return new Date(fa.anio, fa.mes, fa.dia) - new Date(fb.anio, fb.mes, fb.dia);
-                });
-                const p = parsearFecha(todos[0].fecha);
-                if(p) APP.fechaCal = new Date(p.anio, p.mes, 1);
-            } else {
-                APP.fechaCal = new Date(2026, 1, 1);
-            }
-        }
-
-        function obtenerTodosEventos() {
-            const curAlumno = limpiar(buscar(APP.materia, 'CURSO'));
-            const matAlumno = limpiar(buscar(APP.materia, 'MATERIA'));
-
-            const eventosExcel = DB.calendario.map(e => ({
-                fecha: buscar(e, 'FECHA'),
-                titulo: buscar(e, 'EVENTO'),
-                tipo: buscar(e, 'TIPO'),
-                materia: buscar(e, 'MATERIA'),
-                destino: buscar(e, 'DESTINO') || buscar(e, 'CURSO_DESTINO'),
-                detalle: buscar(e, 'DETALLE')
-            })).filter(e => {
-                const dest = limpiar(e.destino);
-                const mat = limpiar(e.materia);
-                const matchCurso = dest === '' || dest.includes(curAlumno) || curAlumno.includes(dest);
-                const matchMateria = mat === '' || mat.includes(matAlumno) || matAlumno.includes(mat) || (matAlumno.includes('histo') && mat.includes('histo'));
-                return matchCurso && matchMateria;
-            });
-
-            const eventosFijos = EVENTOS_FIJOS.map(e => ({
-                fecha: e.f, titulo: e.t, tipo: e.tipo, materia: e.materia, destino: "", detalle: e.detalle
-            }));
-
-            return [...eventosFijos, ...eventosExcel];
-        }
-
-        function obtenerClaseColor(ev) {
-            const txt = (ev.materia + " " + ev.titulo + " " + ev.tipo).toLowerCase();
-            if (txt.includes('feriado')) return 'feriado';
-            if (txt.includes('ingles') || txt.includes('english')) return 'ingles';
-            if (txt.includes('filosofia')) return 'filosofia';
-            if (txt.includes('bolivia')) return 'hist-bol';
-            if (txt.includes('universal')) return 'hist-uni';
-            if (txt.includes('historia')) return 'hist-uni';
-            return 'general';
+        window.agendar = function(t, d, f) {
+            const p = parsearFecha(f);
+            if(!p) return alert("Fecha inválida.");
+            const dateStr = `${p.anio}${String(p.mes+1).padStart(2,'0')}${String(p.dia).padStart(2,'0')}`;
+            const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART;VALUE=DATE:${dateStr}\nSUMMARY:${t}\nDESCRIPTION:${d}\nEND:VEVENT\nEND:VCALENDAR`;
+            const blob = new Blob([ics], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'evento.ics'; a.click();
         }
 
         function renderCalendario() {
             const grid = document.getElementById('cal-dias');
             grid.innerHTML = '';
-            document.getElementById('cal-detalle').style.display = 'none';
-
-            const year = APP.fechaCal.getFullYear();
-            const month = APP.fechaCal.getMonth();
-            const today = new Date();
-
-            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            document.getElementById('cal-mes-anio').innerText = `${meses[month]} ${year}`;
-
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-            const eventos = obtenerTodosEventos();
-
-            for(let i=0; i<firstDay; i++) grid.innerHTML += `<div></div>`;
-
-            for(let d=1; d<=daysInMonth; d++) {
-                const evsDia = eventos.filter(e => {
-                    const p = parsearFecha(e.fecha);
-                    return p && p.dia === d && p.mes === month && p.anio === year;
-                });
-
-                const dots = evsDia.map(e => `<div class="dot ${obtenerClaseColor(e)}"></div>`).join('');
-
-                const isToday = (d === today.getDate() && month === today.getMonth() && year === today.getFullYear());
-                const div = document.createElement('div');
-                div.className = `cal-day ${isToday?'today':''} ${evsDia.length>0?'has-event':''}`;
-                div.innerHTML = `<span>${d}</span><div class="dots">${dots}</div>`;
-                
-                if(evsDia.length > 0) div.onclick = () => mostrarEvento(d, evsDia);
-                grid.appendChild(div);
+            const year = APP.fechaCal.getFullYear(), month = APP.fechaCal.getMonth();
+            document.getElementById('cal-mes-anio').innerText = `${new Intl.DateTimeFormat('es', {month:'long'}).format(APP.fechaCal)} ${year}`.toUpperCase();
+            const firstDay = new Date(year, month, 1).getDay(), days = new Date(year, month + 1, 0).getDate();
+            const evsExcel = DB.calendario.map(e => ({fecha: buscar(e, 'FECHA'), t: buscar(e, 'EVENTO'), tipo: buscar(e, 'TIPO')}));
+            const todos = [...EVENTOS_FIJOS.map(e=>({fecha:e.f, ...e})), ...evsExcel];
+            for(let i=0; i<firstDay; i++) grid.innerHTML += '<div></div>';
+            for(let d=1; d<=days; d++) {
+                const evs = todos.filter(e => { const p = parsearFecha(e.fecha); return p && p.dia === d && p.mes === month && p.anio === year; });
+                const dots = evs.map(e => `<div class="dot ${e.tipo.toLowerCase().includes('feriado')?'feriado':'general'}"></div>`).join('');
+                grid.innerHTML += `<div class="cal-day ${evs.length?'has-event':''}"><span>${d}</span><div class="dots">${dots}</div></div>`;
             }
         }
 
-        function mostrarEvento(dia, eventos) {
-            const box = document.getElementById('cal-detalle');
-            box.style.display = 'block';
-            box.innerHTML = `<strong>Día ${dia}:</strong>` + eventos.map(e => {
-                const color = obtenerClaseColor(e);
-                return `
-                <div style="margin-top:10px; padding-top:10px; border-top:1px dashed #eee; display:flex; gap:10px; align-items:flex-start;">
-                    <div class="dot ${color}" style="margin-top:6px; flex-shrink:0;"></div>
-                    <div style="flex:1">
-                        <div style="color:var(--color-primary-green); font-weight:600; font-size:0.95rem;">${e.titulo}</div>
-                        <div style="font-size:0.8rem; color:#666;">${e.tipo}</div>
-                        ${e.detalle ? `<div style="font-size:0.8rem; color:#444; margin-top:3px; background:#f5f5f5; padding:5px; border-radius:5px;">📝 ${e.detalle}</div>` : ''}
-                        
-                        <button class="btn-reminder" onclick="toggleRecordatorio(this)">
-                            <i class="fa-regular fa-bell"></i> Recordarme
-                        </button>
-                    </div>
-                </div>`;
-            }).join('');
-        }
-
-        window.toggleRecordatorio = function(btn) {
-            if(btn.classList.contains('active')) {
-                btn.classList.remove('active');
-                btn.innerHTML = '<i class="fa-regular fa-bell"></i> Recordarme';
-            } else {
-                btn.classList.add('active');
-                btn.innerHTML = '<i class="fa-solid fa-bell"></i> Activado';
-            }
-        }
-
-        function buscar(obj, keyPart) {
-            if(!obj) return "";
-            const key = Object.keys(obj).find(k => k.includes(keyPart.toUpperCase()));
-            return key ? obj[key] : "";
-        }
-        function limpiar(str) {
-            return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\./g, "").toLowerCase().trim() : "";
-        }
-        
         function parsearFecha(f) {
-            if (!f) return null;
-            if (f.indexOf("Date") >= 0) {
-                let nums = f.match(/(\d+)/g);
-                if (nums && nums.length >= 3) {
-                    return { anio: +nums[0], mes: +nums[1], dia: +nums[2] };
-                }
-            }
-            let nums = f.match(/(\d+)/g);
-            if (!nums || nums.length < 3) return null;
-            let n1 = +nums[0], n2 = +nums[1], n3 = +nums[2];
-            
-            if (n1 > 1000) return { anio: n1, mes: n2 - 1, dia: n3 };
-            return { anio: n3, mes: n2 - 1, dia: n1 };
+            if(!f) return null;
+            if(f.includes('Date')) { const n = f.match(/(\d+)/g); return { anio: +n[0], mes: +n[1], dia: +n[2] }; }
+            const n = f.match(/(\d+)/g);
+            if(!n || n.length < 3) return null;
+            return n[0] > 1000 ? { anio: +n[0], mes: +n[1]-1, dia: +n[2] } : { anio: +n[2], mes: +n[1]-1, dia: +n[0] };
         }
 
-        function cambiarVista(id) {
-            ['view-login', 'view-dashboard', 'view-detail'].forEach(v => document.getElementById(v).style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-        }
-        
-        window.verTab = function(id) {
-            ['contenidos', 'calendario', 'notificaciones'].forEach(t => document.getElementById('tab-'+t).style.display = 'none');
-            document.getElementById('tab-'+id).style.display = 'block';
-            document.querySelectorAll('.tab-btn').forEach(b => {
-                b.classList.remove('active');
-                if(b.getAttribute('onclick').includes(id)) b.classList.add('active');
-            });
-        }
-        window.cambiarMes = (d) => { APP.fechaCal.setMonth(APP.fechaCal.getMonth() + d); renderCalendario(); }
+        function buscar(obj, keyPart) { const key = Object.keys(obj).find(k => k.includes(keyPart.toUpperCase())); return key ? obj[key] : ""; }
+        function limpiar(s) { return s ? s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\./g, "").toLowerCase().trim() : ""; }
+        function cambiarVista(id) { ['view-login', 'view-dashboard', 'view-detail'].forEach(v => document.getElementById(v).style.display = 'none'); document.getElementById(id).style.display = 'block'; }
+        window.verTab = function(id) { ['contenidos', 'calendario', 'notificaciones'].forEach(t => document.getElementById('tab-'+t).style.display = 'none'); document.getElementById('tab-'+id).style.display = 'block'; document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); if(b.innerText.toLowerCase().includes(id.slice(0,3))) b.classList.add('active'); }); }
+        window.cambiarMes = (n) => { APP.fechaCal.setMonth(APP.fechaCal.getMonth() + n); renderCalendario(); }
+        window.volverAlDashboard = () => cambiarVista('view-dashboard');
     </script>
 </body>
 </html>
