@@ -52,8 +52,11 @@
         .proyecto-tab { display: none; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .img-placeholder { width: 100%; height: 250px; background-color: #eaeaea; border: 3px dashed #bcbcbc; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; margin-bottom: 25px; text-align: center; font-weight: 600; }
+        .img-placeholder { width: 100%; height: 250px; background-color: #eaeaea; border: 3px dashed #bcbcbc; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; margin-bottom: 25px; text-align: center; font-weight: 600; padding: 0 20px; box-sizing: border-box;}
         .img-placeholder i { font-size: 2.5rem; margin-bottom: 10px; color: #aaa; }
+        
+        /* Estilo para imagen real */
+        .img-real { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid var(--color-white); }
 
         .content-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; border-left: 5px solid var(--color-primary-green); box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
         .content-card h4 { color: var(--color-primary-green); margin-top: 0; margin-bottom: 10px; font-size: 1.1rem; }
@@ -114,8 +117,6 @@
         let datosProyectos = [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // Nuevo método nativo para evitar bloqueos
             fetch(urlGoogleSheetsCSV)
                 .then(response => {
                     if (!response.ok) {
@@ -132,9 +133,7 @@
                                 document.getElementById('loader').innerHTML = `
                                     <div class="error-msg">
                                         <strong>⚠️ Faltan las columnas correctas</strong><br><br>
-                                        Tu documento se conectó con éxito, pero la primera fila de tu Excel no tiene los nombres que el sistema busca.<br><br>
-                                        Asegúrate de que la Fila 1 diga exactamente: 
-                                        <i>id_pestana, nombre_pestana, titulo_proyecto, fecha, objetivo, materiales, elaboracion, grupos</i>.
+                                        Asegúrate de que la Fila 1 tenga las columnas exactas.
                                     </div>`;
                                 return;
                             }
@@ -153,8 +152,7 @@
                 .catch(error => {
                     document.getElementById('loader').innerHTML = `
                         <div class="error-msg">
-                            <strong>⚠️ Error de Conexión</strong><br><br>
-                            Revisa que tu hoja de Excel esté publicada correctamente yendo a <b>Archivo > Compartir > Publicar en la web</b>.<br>
+                            <strong>⚠️ Error de Conexión</strong><br>
                             <i>Detalle: ${error.message}</i>
                         </div>`;
                 });
@@ -205,15 +203,30 @@
                 if(proyecto.nombre_pestana && (proyecto.nombre_pestana.toLowerCase().includes('hb') || proyecto.nombre_pestana.toLowerCase().includes('bolivia'))) borderColor = 'var(--col-hist-bol)';
                 if(proyecto.nombre_pestana && proyecto.nombre_pestana.toLowerCase().includes('ing')) borderColor = 'var(--col-ingles)';
 
+                // --- LÓGICA DE IMAGEN AÑADIDA ---
+                let imagenHtml = '';
+                if (proyecto.imagen_url && proyecto.imagen_url.trim() !== '') {
+                    let urlImg = proyecto.imagen_url.trim();
+                    // Corrección automática para enlaces de Imgur sin terminación .jpg
+                    if (urlImg.includes('imgur.com') && !urlImg.includes('i.imgur.com')) {
+                        urlImg = urlImg.replace('imgur.com', 'i.imgur.com') + '.jpg';
+                    }
+                    imagenHtml = `<img src="${urlImg}" alt="Referencia del Proyecto" class="img-real" style="border-color: ${borderColor};">`;
+                } else {
+                    imagenHtml = `
+                    <div class="img-placeholder">
+                        <i class="fa-regular fa-image"></i>
+                        <span>Sin imagen de referencia<br><small style="font-weight:400; font-size:0.8rem;">(Agrega el enlace en la columna imagen_url)</small></span>
+                    </div>`;
+                }
+                // --------------------------------
+
                 contenidoHtml.innerHTML += `
                 <section id="${proyecto.id_pestana}" class="proyecto-tab" style="display: ${displayStyle};">
                     <h2 style="color: var(--color-primary-green);">${proyecto.titulo_proyecto || 'Proyecto'}</h2>
                     <p style="color: #666; font-weight: 600;"><i class="fa-regular fa-calendar"></i> Fecha de entrega: ${proyecto.fecha || 'Por definir'}</p>
 
-                    <div class="img-placeholder">
-                        <i class="fa-regular fa-image"></i>
-                        <span>[ ESPACIO PARA IMAGEN DE REFERENCIA: ${proyecto.titulo_proyecto || 'Proyecto'} ]</span>
-                    </div>
+                    ${imagenHtml}
 
                     <div class="content-card" style="border-left-color: ${borderColor};">
                         <h4><i class="fa-solid fa-bullseye"></i> 1. Objetivo</h4>
